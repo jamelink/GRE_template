@@ -20,9 +20,9 @@ The process is as follows:
 
 4. Do visual QC on GRE-derived measures. Inspect visual html files in the 'qc' folder for all different types and remove subjects that do not look okay from the orig-folder and id_list.txt. Generate html-files by running: 
 > qc_all.sh <main_dir> 
-5. Run the preprocessing. This is a wrapper that submits subject-specfic preprocessing. It depends on preprocess_sub.sh. Preparing consists of BET, bias-field correction of T1, alignment of GRE-space to T1, and alignment to MNI-space. The command is:
+5. Run the preprocessing. This is a wrapper that submits subject-specfic preprocessing  (runtime ~1.5 hours per job). It depends on qsm_templ_preprocess_sub.sh. Preparing consists of BET, bias-field correction of T1, alignment of GRE-space to T1, and alignment to MNI-space. The command is:
 > preprocess_all <main_dir> 
-6. If step 2 jobs are completed (runtime ~1.5 hours per job), run the main template creation. Runtime is roughly 4x8 hrs, but dependent on amount of subjects and how busy the cluster is. Command:
+6. If step 2 jobs are completed, run the main template creation. Runtime is ~4x8 hrs, but dependent on amount of subjects and how busy the cluster is. Command:
 > create_template <main_dir>
 7. To normalize all subjects to template space, run register_all.sh This is a wrapper for submitting register_sub.sh jobs.
 > register_all <main_dir>
