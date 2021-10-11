@@ -3,9 +3,9 @@
 This code creates a multimodal study-specifi template for GRE derived maps (QSM, SMWI and R2*). This code has been adapted and expanded from Ferdinand Schweser's lab to function at the DCCN. The template is optimized for imaging of the deep nuclei and basal ganglia. Resolution of the cortex is manageable but less optimal for finegrained anatomical imaging.
 
 Dependencies:
-FSL
-ANTS
-C3d affine etool
+- FSL
+- ANTS
+- C3d affine etool
 
 The main pipeline is as follows:
 
