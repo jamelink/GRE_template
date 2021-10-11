@@ -4,7 +4,7 @@ This code creates a multimodal study-specifi template for GRE derived maps (QSM,
 
 Dependencies:
 - FSL 6.0.3
-- ANTS 2015.02
+- ANTS 2.1.0 (20150225 on DCCN cluster)
 - C3d affine etool
 
 The process is as follows:
