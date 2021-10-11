@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TEMPLATE_DIR=/project/3022026.02/POM/bids/derivatives/QSM_template_NDI
+TEMPLATE_DIR=$1
 #LOG_DIR="${TEMPLATE_DIR}/logs"
 CODE_PATH="/project/3022026.02/POM/code/QSM"
 #mkdir -p ${LOG_DIR}
