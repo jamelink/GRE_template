@@ -9,7 +9,14 @@ Dependencies:
 
 The process is as follows:
 
-1. Download this code to a path of your own. Modify the code-path variables in all code files to your own code directory (except the modified antsMultivariateTemplateConstruction2.sh).
+1. Download this code to a path of your own. Modify the code-path variables to your own code directory in the following files: 
+- qc_all.sh
+- preprocess_all.sh
+- qsm_templ_preprocess_sub.sh
+- create_template.sh
+- register_all.sh
+- register_sub.sh
+
 2. Derive GRE-derived measures: R2*-maps, SMWI-maps and QSM-maps. Unprocessed T1w-images are also a prerequisite.
 3. Create a study-folder (e.g '/project/<project_no>/bids/derivatives/qsm_template', referred to as <main_dir> below). Create a subdirectory called 'orig' with all images. Also include a tight QSM-mask. Naming should be as below, with subid as 'sub-001' etc. Add a list with all subject-ids called 'id_list.txt' in the main directory.
 - subid_qsm.nii.gz
@@ -19,10 +26,15 @@ The process is as follows:
 - subid_mask.nii.gz
 
 4. Do visual QC on GRE-derived measures. Inspect html files in the 'qc' folder for all different types and remove subjects that do not look okay from the orig-folder and id_list.txt. Generate html-files by running: 
-> qc_all.sh <main_dir> 
+> qc_all.sh <main_dir>
+ 
 5. Run the preprocessing. This is a wrapper that submits subject-specfic preprocessing  (runtime ~1.5 hours per job). It depends on qsm_templ_preprocess_sub.sh. Preparing consists of BET, bias-field correction of T1, alignment of GRE-space to T1, and alignment to MNI-space. The command is:
 > preprocess_all.sh <main_dir> 
+
 6. If step 2 jobs are completed, run the main template creation. Runtime is ~4x8 hrs, but dependent on amount of subjects and how busy the cluster is. Command:
 > create_template.sh <main_dir>
+
 7. To normalize all subjects to template space, run register_all.sh This is a wrapper for submitting register_sub.sh jobs.
 > register_all.sh <main_dir>
+
+Any questions to Jitse.Amelink@mpi.nl
