@@ -19,7 +19,7 @@ ls $TEMPLATE_DIR/orig/*_t1.nii.gz > $TEMPLATE_DIR/qc/t1_maps.txt
 $code_path/slicesdir_r2star -e 0 $(cat $QSM_path/r2star_maps.txt)
 mv slicesdir $TEMPLATE_DIR/qc/r2star
 $code_path/slicesdir_qsm -e 0 $(cat $QSM_path/qsm_maps.txt)
-mv slicesdir $TEMPLATE_DIR/qc/qsm_qc
+mv slicesdir $TEMPLATE_DIR/qc/qsm
 $FSLDIR/slicesdir -e 0 $(cat $QSM_path/smwi_maps.txt)
 mv slicesdir $TEMPLATE_DIR/qc/smwi
 $FSLDIR/slicesdir -e 0 $(cat $QSM_path/t1_maps.txt)
